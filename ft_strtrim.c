@@ -19,9 +19,3 @@ char	*ft_strtrim(char const *s)
 	len = max - min;
 	return (ft_strsub(s, min, len + 1));
 }
-
-int	main(int ac, char **av)
-{
-	printf("%s",ft_strtrim(av[1]));
-	return (0);
-}

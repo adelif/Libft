@@ -1,5 +1,4 @@
 #include "libft.h"
-#include <stdio.h>
 
 void	ft_putchar(char c)
 {
@@ -26,12 +25,5 @@ char	*ft_strstr(const char *haystack, const char *needle)
 		}
 		i++;
 	}
-	return (0);
-}
-
-int	main(int ac, char **av)
-{
-	printf("ft_strstr ---> %s\n", ft_strstr("daphenie", "henry est malade"));
-	printf("strstr ---> %s\n", strstr("daphenie", "henry est malade"));
 	return (0);
 }
