@@ -9,7 +9,7 @@ void	ft_striter(char *s, void (*f)(char *))
 	{
 		while (s[i])
 		{
-			(*f)(i, &s[i]);
+			(*f)(&s[i]);
 			i++;
 		}
 	}

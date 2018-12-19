@@ -40,7 +40,7 @@ char	*ft_cpyline(char const *str, char c)
 	char	*s;
 
 	j = 0;
-	if (!s)
+	if (!str)
 		return (NULL);
 	if (!(s = (char*)malloc(sizeof(*s) * ft_lettersnumber(str, c) + 1)))
 		return (NULL);

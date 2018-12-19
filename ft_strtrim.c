@@ -9,10 +9,12 @@ char	*ft_strtrim(char const *s)
 	if (!s)
 		return (NULL);
 	min = 0;
-	while (s[min] && s[min] == ' ' || s[min] == ',' || s[min] == '\n' || s[min] == '\t')
+	while (s[min] && (s[min] == ' ' || s[min] == ',' || s[min] == '\n'\
+	|| s[min] == '\t'))
 		min++;
 	max  = (ft_strlen(s)) - 1;
-	while (min < max && (s[max] == ' ' || s[max] == ',' || s[max] == '\n' || s[max] =='\t'))
+	while (min < max && (s[max] == ' ' || s[max] == ',' || s[max] == '\n'\
+	|| s[max] =='\t'))
 		max--;
 	if (min == max)
 		return (ft_strnew(1));

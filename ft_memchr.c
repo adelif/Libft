@@ -11,7 +11,7 @@ void	*ft_memchr(const void *s, int c, size_t n)
 	{
 		if (str[i] == (unsigned char)c)
 			return (str + i);
-			i ++;
+		i ++;
 	}
 	return (NULL);
 }
