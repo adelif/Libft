@@ -1,6 +1,6 @@
 #include "libft.h"
 
-void	ft_striter(char *s, void (*f)(char *))
+static void	ft_striter(char *s, void (*f)(char *))
 {
 	int	i;
 

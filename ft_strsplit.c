@@ -3,7 +3,7 @@
 int	ft_lettersnumber(char const *str, char c)
 
 {
-	int	i;
+	static int	i;
 
 	i = 0;
 	while (str[i] && str[i] != c)
@@ -11,11 +11,11 @@ int	ft_lettersnumber(char const *str, char c)
 	return (i);
 }
 
-int	ft_wordsnumber(char const *str, char c)
+static int	ft_wordsnumber(char const *str, char c)
 {
-	int	i;
-	int	nbrword;
-	int	newword;
+	static int	i;
+	static int	nbrword;
+	static int	newword;
 
 	i = 0;
 	nbrword = 0;
@@ -34,10 +34,10 @@ int	ft_wordsnumber(char const *str, char c)
 	return (nbrword);
 }
 
-char	*ft_cpyline(char const *str, char c)
+static char	*ft_cpyline(char const *str, char c)
 {
 	int		j;
-	char	*s;
+	static char	*s;
 
 	j = 0;
 	if (!str)

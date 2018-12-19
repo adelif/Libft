@@ -1,10 +1,5 @@
 #include "libft.h"
 
-void	ft_putchar(char c)
-{
-	write(1, &c, 1);
-}
-
 char	*ft_strstr(const char *haystack, const char *needle)
 {
 	int i;
