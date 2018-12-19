@@ -6,19 +6,18 @@ char				*ft_strmapi(char const *s, char (*f)(unsigned int, char))
 	size_t			len;
 	char			*str;
 
-	if (s && f)
+	if (!s || !f)
+		return (NULL);
+	len = ft_strlen(s);
+	if (!(str = (char *)malloc((len + 1) * sizeof(char))))
+		return (NULL);
+	i = 0;
+	while (s[i])
 	{
-		len = ft_strlen(s);
-		if (!(str = (char *)malloc((len + 1) * sizeof(char))))
-			return (NULL);
-		i = 0;
-		while (s[i])
-		{
-			str[i] = (*f)(i, s[i]);
-			i++;
-		}
-		str[i] = '\0';
+		str[i] = (*f)(i, s[i]);
+		i++;
 	}
+	str[i] = '\0';
 	return (str);
 }
 
