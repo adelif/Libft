@@ -1,6 +1,6 @@
 #include "libft.h"
 
-int	ft_lettersnumber(char const *str, char c)
+static int	ft_lettersnumber(char const *str, char c)
 
 {
 	static int	i;
