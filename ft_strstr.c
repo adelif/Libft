@@ -7,6 +7,8 @@ char	*ft_strstr(const char *haystack, const char *needle)
 
 	i = 0;
 	j = 0;
+	if (!*needle)
+		return ((char *)haystack);
 	while (haystack[i])
 	{
 		j = 0;

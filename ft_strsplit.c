@@ -61,24 +61,31 @@ char	**ft_strsplit(char const *s, char c)
 
 	j = 0;
 	k = 0;
-	if (!s)
+	if (s == NULL)
 		return (NULL);
 	if (!(tab = (char**)malloc(sizeof(char*) * ft_wordsnumber(s,c) + 1)))
 		return (NULL);
 	while (s[j])
 	{
-		while (s[j] == c)
+		while (s[j] && s[j] == c)
 			j++;
 		if (s[j])
 		{
 			tab[k] = ft_cpyline(s,c);
 			k++;
 		}
-		while (s[j] != c)
+		while (s[j] && s[j] != c)
 			j++;
 	}
 	tab[k] = NULL;
 	return (tab);
 }
 
+int main(int ac, char **av)
+{
+	const char *str;
 
+	str = "hhhhhsaluthhlescopainshh";
+	ft_strsplit(str, 'h');
+	return (0);
+}
