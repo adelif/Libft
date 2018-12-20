@@ -1,7 +1,18 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_strsplit.c                                      :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: dfelissa <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2018/12/20 13:13:09 by dfelissa          #+#    #+#             */
+/*   Updated: 2018/12/20 13:48:19 by dfelissa         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "libft.h"
 
 static int	ft_lettersnumber(char const *str, char c)
-
 {
 	static int	i;
 
@@ -36,7 +47,7 @@ static int	ft_wordsnumber(char const *str, char c)
 
 static char	*ft_cpyline(char const *str, char c)
 {
-	int		j;
+	int			j;
 	static char	*s;
 
 	j = 0;
@@ -53,17 +64,17 @@ static char	*ft_cpyline(char const *str, char c)
 	return (s);
 }
 
-char	**ft_strsplit(char const *s, char c)
+char		**ft_strsplit(char const *s, char c)
 {
-	int	j;
-	int	k;
+	int		j;
+	int		k;
 	char	**tab;
 
 	j = 0;
 	k = 0;
 	if (s == NULL)
 		return (NULL);
-	if (!(tab = (char**)malloc(sizeof(char*) * ft_wordsnumber(s,c) + 1)))
+	if (!(tab = (char**)malloc(sizeof(char*) * ft_wordsnumber(s, c) + 1)))
 		return (NULL);
 	while (s[j])
 	{
@@ -71,7 +82,7 @@ char	**ft_strsplit(char const *s, char c)
 			j++;
 		if (s[j])
 		{
-			tab[k] = ft_cpyline(s,c);
+			tab[k] = ft_cpyline(s, c);
 			k++;
 		}
 		while (s[j] && s[j] != c)
@@ -81,7 +92,7 @@ char	**ft_strsplit(char const *s, char c)
 	return (tab);
 }
 
-int main(int ac, char **av)
+int main(void)
 {
 	const char *str;
 

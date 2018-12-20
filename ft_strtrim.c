@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_strtrim.c                                       :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: dfelissa <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2018/12/20 13:13:37 by dfelissa          #+#    #+#             */
+/*   Updated: 2018/12/20 13:39:06 by dfelissa         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "libft.h"
 
 char	*ft_strtrim(char const *s)
@@ -12,9 +24,9 @@ char	*ft_strtrim(char const *s)
 	while (s[min] && (s[min] == ' ' || s[min] == ',' || s[min] == '\n'\
 	|| s[min] == '\t'))
 		min++;
-	max  = (ft_strlen(s)) - 1;
+	max = (ft_strlen(s)) - 1;
 	while (min < max && (s[max] == ' ' || s[max] == ',' || s[max] == '\n'\
-	|| s[max] =='\t'))
+	|| s[max] == '\t'))
 		max--;
 	if (min == max)
 		return (ft_strnew(1));
