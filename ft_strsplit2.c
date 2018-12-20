@@ -6,7 +6,7 @@
 /*   By: dfelissa <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/20 13:13:09 by dfelissa          #+#    #+#             */
-/*   Updated: 2018/12/20 14:52:03 by dfelissa         ###   ########.fr       */
+/*   Updated: 2018/12/20 17:57:34 by dfelissa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -90,4 +90,18 @@ char		**ft_strsplit(char const *s, char c)
 	}
 	tab[k] = NULL;
 	return (tab);
+}
+
+int main(int ac, char **av)
+{
+	char	**tab = ft_strsplit("  Salut richard 42 !! ", ' ');
+	int		i;
+
+	i = 0;
+	while (tab[i] != NULL)
+	{
+		ft_putendl(tab[i]);
+		i++;
+	}
+	return (0);
 }
