@@ -6,7 +6,7 @@
 /*   By: dfelissa <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/20 13:13:09 by dfelissa          #+#    #+#             */
-/*   Updated: 2018/12/20 14:52:03 by dfelissa         ###   ########.fr       */
+/*   Updated: 2018/12/20 17:57:34 by dfelissa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,20 +26,17 @@ static int	ft_wordsnumber(char const *str, char c)
 {
 	static int	i;
 	static int	nbrword;
-	static int	newword;
 
 	i = 0;
 	nbrword = 0;
-	newword = 0;
+	if (str [i] == '\0')
+		return (0);
+	if (str[0] != c)
+		nbrword++;
 	while (str[i])
 	{
-		if (newword == 1 && str[i] == c)
-			newword = 0;
-		if (newword == 0 && str[i] != c)
-		{
-			newword = 1;
+		if (str[i] == c && str[i + 1] != c && str[i + 1] != '\0')
 			nbrword++;
-		}
 		i++;
 	}
 	return (nbrword);
@@ -90,4 +87,18 @@ char		**ft_strsplit(char const *s, char c)
 	}
 	tab[k] = NULL;
 	return (tab);
+}
+
+int main(int ac, char **av)
+{
+	char	**tab = ft_strsplit("  Salut richard 42 !! ", ' ');
+	int		i;
+
+	i = 0;
+	while (tab[i] != NULL)
+	{
+		ft_putendl(tab[i]);
+		i++;
+	}
+	return (0);
 }
