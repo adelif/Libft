@@ -6,17 +6,14 @@
 /*   By: dfelissa <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/20 13:13:09 by dfelissa          #+#    #+#             */
-/*   Updated: 2018/12/20 17:57:34 by dfelissa         ###   ########.fr       */
+/*   Updated: 2018/12/21 14:26:14 by dfelissa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-static int	ft_lettersnumber(char const *str, char c)
+static int	ft_lettersnumber(char const *str, char c, int i)
 {
-	static int	i;
-
-	i = 0;
 	while (str[i] && str[i] != c)
 		i++;
 	return (i);
@@ -29,7 +26,7 @@ static int	ft_wordsnumber(char const *str, char c)
 
 	i = 0;
 	nbrword = 0;
-	if (str [i] == '\0')
+	if (str[i] == '\0')
 		return (0);
 	if (str[0] != c)
 		nbrword++;
@@ -42,20 +39,21 @@ static int	ft_wordsnumber(char const *str, char c)
 	return (nbrword);
 }
 
-static char	*ft_cpyline(char const *str, char c)
+static char	*ft_cpyline(char const *str, char c, int i)
 {
 	int			j;
 	static char	*s;
 
 	j = 0;
-	if (!str)
-		return (NULL);
-	if (!(s = (char*)malloc(sizeof(*s) * ft_lettersnumber(str, c) + 1)))
-		return (NULL);
-	while (str[j] && str[j] != c)
+	if (str[i])
+		if (!(s = (char*)malloc(sizeof(s) * ft_lettersnumber(str, c, i) - i \
+						+ 1)))
+			return (NULL);
+	while (str[i] && str[i] != c)
 	{
-		s[j] = str[j];
+		s[j] = str[i];
 		j++;
+		i++;
 	}
 	s[j] = '\0';
 	return (s);
@@ -63,42 +61,28 @@ static char	*ft_cpyline(char const *str, char c)
 
 char		**ft_strsplit(char const *s, char c)
 {
-	int		j;
-	int		k;
-	char	**tab;
+	int			i;
+	int			j;
+	char		**tab;
 
+	i = 0;
 	j = 0;
-	k = 0;
 	if (s == NULL)
 		return (NULL);
 	if (!(tab = (char**)malloc(sizeof(char*) * ft_wordsnumber(s, c) + 1)))
 		return (NULL);
-	while (s[j])
+	while (s[i])
 	{
-		while (s[j] && s[j] == c)
-			j++;
-		if (s[j])
+		while (s[i] && s[i] == c)
+			i++;
+		if (s[i])
 		{
-			tab[k] = ft_cpyline(s, c);
-			k++;
-		}
-		while (s[j] && s[j] != c)
+			tab[j] = ft_cpyline(s, c, i);
 			j++;
+		}
+		while (s[i] && s[i] != c)
+			i++;
 	}
-	tab[k] = NULL;
+	tab[j] = NULL;
 	return (tab);
-}
-
-int main(int ac, char **av)
-{
-	char	**tab = ft_strsplit("  Salut richard 42 !! ", ' ');
-	int		i;
-
-	i = 0;
-	while (tab[i] != NULL)
-	{
-		ft_putendl(tab[i]);
-		i++;
-	}
-	return (0);
 }
