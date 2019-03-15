@@ -1,30 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strnew.c                                        :+:      :+:    :+:   */
+/*   ft_foreach.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dfelissa <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/12/20 13:10:17 by dfelissa          #+#    #+#             */
-/*   Updated: 2018/12/20 13:12:31 by dfelissa         ###   ########.fr       */
+/*   Created: 2018/12/29 12:20:20 by dfelissa          #+#    #+#             */
+/*   Updated: 2018/12/29 12:20:24 by dfelissa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
-
-char		*ft_strnew(size_t size)
+void	ft_foreach(int *tab, int length, void (*f)(int))
 {
-	size_t	i;
-	char	*str;
+	int	i;
 
-	if (!(str = (char *)malloc((size + 1) * sizeof(char))))
-		return (NULL);
 	i = 0;
-	while (i < size)
+	while (i < length)
 	{
-		str[i] = '\0';
+		f(tab[i]);
 		i++;
 	}
-	str[i] = '\0';
-	return (str);
 }

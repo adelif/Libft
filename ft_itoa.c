@@ -40,7 +40,7 @@ char		*ft_itoa(int n)
 
 	nb = n;
 	len = ft_len(n);
-	if (nb < -2147483648 || nb > 2147483647)
+	if (nb < INT_MIN || nb > INT_MAX)
 		return (0);
 	if (!(str = (char*)malloc(sizeof(char) * len + 1)))
 		return (NULL);

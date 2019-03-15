@@ -6,7 +6,7 @@
 /*   By: dfelissa <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/20 13:13:09 by dfelissa          #+#    #+#             */
-/*   Updated: 2018/12/21 14:26:14 by dfelissa         ###   ########.fr       */
+/*   Updated: 2018/12/29 12:35:39 by dfelissa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,8 +21,8 @@ static int	ft_lettersnumber(char const *str, char c, int i)
 
 static int	ft_wordsnumber(char const *str, char c)
 {
-	static int	i;
-	static int	nbrword;
+	int	i;
+	int	nbrword;
 
 	i = 0;
 	nbrword = 0;
@@ -41,14 +41,15 @@ static int	ft_wordsnumber(char const *str, char c)
 
 static char	*ft_cpyline(char const *str, char c, int i)
 {
-	int			j;
-	static char	*s;
+	int		j;
+	char	*s;
 
 	j = 0;
-	if (str[i])
-		if (!(s = (char*)malloc(sizeof(s) * ft_lettersnumber(str, c, i) - i \
+	if (!(str))
+		return (NULL);
+	if (!(s = (char*)malloc(sizeof(s) * ft_lettersnumber(str, c, i) - i \
 						+ 1)))
-			return (NULL);
+		return (NULL);
 	while (str[i] && str[i] != c)
 	{
 		s[j] = str[i];
@@ -61,9 +62,9 @@ static char	*ft_cpyline(char const *str, char c, int i)
 
 char		**ft_strsplit(char const *s, char c)
 {
-	int			i;
-	int			j;
-	char		**tab;
+	int		i;
+	int		j;
+	char	**tab;
 
 	i = 0;
 	j = 0;

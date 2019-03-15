@@ -1,30 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strnew.c                                        :+:      :+:    :+:   */
+/*   ft_strrev.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dfelissa <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/12/20 13:10:17 by dfelissa          #+#    #+#             */
-/*   Updated: 2018/12/20 13:12:31 by dfelissa         ###   ########.fr       */
+/*   Created: 2018/12/29 12:25:35 by dfelissa          #+#    #+#             */
+/*   Updated: 2018/12/29 12:26:00 by dfelissa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
-
-char		*ft_strnew(size_t size)
+char		*ft_strrev(char *str)
 {
-	size_t	i;
-	char	*str;
+	int		i;
+	int		j;
+	char	temp;
 
-	if (!(str = (char *)malloc((size + 1) * sizeof(char))))
-		return (NULL);
 	i = 0;
-	while (i < size)
-	{
-		str[i] = '\0';
+	j = 0;
+	while (str[i] != '\0')
 		i++;
+	i--;
+	while (j < i)
+	{
+		temp = str[i];
+		str[i] = str[j];
+		str[j] = temp;
+		j++;
+		i--;
 	}
-	str[i] = '\0';
 	return (str);
 }

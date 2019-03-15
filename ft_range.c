@@ -1,30 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strnew.c                                        :+:      :+:    :+:   */
+/*   ft_range.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dfelissa <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/12/20 13:10:17 by dfelissa          #+#    #+#             */
-/*   Updated: 2018/12/20 13:12:31 by dfelissa         ###   ########.fr       */
+/*   Created: 2018/12/29 12:22:33 by dfelissa          #+#    #+#             */
+/*   Updated: 2018/12/29 12:22:47 by dfelissa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char		*ft_strnew(size_t size)
+int		*ft_range(int min, int max)
 {
-	size_t	i;
-	char	*str;
+	int	*tab;
+	int	i;
 
-	if (!(str = (char *)malloc((size + 1) * sizeof(char))))
-		return (NULL);
 	i = 0;
-	while (i < size)
+	if (min >= max)
+		return (NULL);
+	tab = (int*)malloc(sizeof(*tab) * (max - min));
+	if (tab == NULL)
+		return (0);
+	while (min < max)
 	{
-		str[i] = '\0';
+		tab[i] = min;
+		min++;
 		i++;
 	}
-	str[i] = '\0';
-	return (str);
+	return (tab);
 }
